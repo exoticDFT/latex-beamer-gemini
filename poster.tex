@@ -152,66 +152,104 @@
 
 \begin{column}{\colwidth}
 
-  \begin{block}{Ways to help mitigate the reproducibility in your research}
+  \begin{exampleblock}{Ways to help mitigate the reproducibility in your research}
 
-    Today, computers are used in ever aspect of research.
-    Although software is inherit in our research to do simple or complex
-    computations, we don't always look at these efforts as software engineering.
-    However, we can learn a lot from the community and in the recent years
-    some associations have come about focused on "research software engineering"
-    (RSEng).
-    One such is the 
+    Software is essential and inherit in every aspect of modern research.
+    The coding we do for this research is often overlooked as software
+    engineering.
+    However, we can learn a lot from the software engineering community and
+    in the recent years there has been an emergence of associations focused on 
+    "research software engineering (RSEng)", specifically.
+    One such organization is the
     (\href{https://us-rse.org}{United States Research Software Engineer Association (US-RSE)})
     (several others are mentioned in the references section.)
-    These communities strive to promote scientific best practices for better
-    research related software.
+    These communities strive to promote scientific software best practices to
+    support better research.
     For example, the Better Scientific Software (BSSw)\cite{bssw} provides many
-    resources to help researchers and RSEs support successful research projects.
+    resources, such as
+    \href{https://bssw.io/items?topic=reproducibility}{https://bssw.io/items},
+    to help researchers and RSEs create successful research projects.
 
-    Although these resources can be extremely useful, their are some many
-    "best practices" out there to investigate.
-    So I'm going to discuss some of the "easier" and possibly most impactful
+    Although these resources can be extremely useful, their are a large amount
+    of "best practices" one can use.
+    So I'm going to discuss some of the "easier" and possibly more impactful
     tools one can use.
+    I will focus on \textbf{version control}, \textbf{code reviews},
+    \textbf{documentation}, and \textbf{testing}.
+    
+    Focusing some effort on these best practices can help with:
+    \begin{itemize}
+      \item Higher \textbf{reusability} of code (less need to copy and paste
+        things that already work)
+      \item Better \textbf{reproducibility} and robustness of software
+        (verify/validate results and handle errors)
+      \item Improved \textbf{scalability} (ability to add new features and
+        complexity)
+      \item Enhanced \textbf{collaboration} (work with others)
+      \item Boosted \textbf{clarity} (reminders of what you did and helps other
+        follow)
+      \item Greater \textbf{transferability} of data and programs (work
+        anywhere, sharing, etc.)
+      \item \textbf{Transparency} of results and methods (helps public trust
+        and explaining to others)
+    \end{itemize}
     
     \textbf{Disclaimer:} None of the these techniques can single handedly
     resolve, or entirely mitigate the problem of reproducibility.
     However, together they can help reduce unintended difficulties for others,
     or even yourself, in reproducing your work in the future.
 
-    \begin{enumerate}
-      \item \textbf{Version Control} 
-      \item \textbf{Code Reviews} 
-      \item \textbf{Documentation} 
-      \item \textbf{Testing} 
-    \end{enumerate}
+  \end{exampleblock}
 
-  \end{block}
+  \begin{block}{Best Practice: Version Control}
 
-  \begin{block}{Version Control}
+    Version control can be an extremely useful tool to track changes to your
+    software (and experimentation) throughout your research endeavor.
+    If you are unfamiliar with version control tools, you probably have used
+    some system yourself for tracking your changes.
+    For example,
+    \href{https://phdcomics.com/comics/archive.php?comicid=1531}{PhD Comics}
+    jokes about a common practice many of us (myself included) have used in the
+    past to track our research papers, where you simply save a new file with
+    changes from the last iteration and name it `whatever-rev2.doc`.
+    This of course can get quite tenuous quickly when you have 10+ revisions.
+    \\
+    \textbf{Protip:} Check out \href{overleaf.com}{overleaf.com} for tracking
+    document changes if working with LaTeX.
 
-    
+    When working with software, \href{https://git-scm.com/}{Git} is one of the
+    most popular tools for version control.
+    It ties directly into management software, such as
+    \href{https://github.com}{GitHub} and \href{https://gitlab.com}{GitLab}.
+    Git is essentially a history of snapshots in time of your software.
+    This is done by saving just the changes between snapshots as "commits" in
+    a linked list, or directional acyclic graph.
+    This history (and all its metadata) is called a "repository" or "repo".
+    Figure \ref{fig:git-simple} and \ref{fig:git-github-flow} show the history
+    of two different Git repositories.
+    In both these figures, commits are shown as circles, with directional lines
+    showing the commit that was before it, like a linked list.
+    Each commit contains the changes from the last commit, thus tracking the
+    history of the repo over time.
 
     \begin{figure}
       \centering
-      \begin{tikzpicture}
-        \begin{axis}[
-            scale only axis,
-            no markers,
-            domain=0:2*pi,
-            samples=100,
-            axis lines=center,
-            axis line style={-},
-            ticks=none]
-          \addplot[red] {sin(deg(x))};
-          \addplot[blue] {cos(deg(x))};
-        \end{axis}
-      \end{tikzpicture}
-      \caption{Another figure caption.}
+      \includegraphics[width=0.95\textwidth]{tess2024/git-simple-git-repo.pdf}
+      \caption{Version Control: A simple Git history of the "main" branch}
+      \label{fig:git-simple}
+    \end{figure}
+
+    \begin{figure}
+      \centering
+      \includegraphics[width=0.95\textwidth]{tess2024/git-github-flow.pdf}
+      \caption{Version Control: A Git repo using a branching model known as
+        GitHub Flow}
+      \label{fig:git-github-flow}
     \end{figure}
 
   \end{block}
 
-  \begin{block}{Documentation}
+  \begin{block}{Best Practice: Code Reviews}
 
     Nulla eget sem quam. Ut aliquam volutpat nisi vestibulum convallis. Nunc a
     lectus et eros facilisis hendrerit eu non urna. Interdum et malesuada fames
@@ -280,7 +318,7 @@
 
   \end{exampleblock}
 
-  \begin{block}{Code Reviews}
+  \begin{block}{Best Practice: Documentation}
 
     Class aptent taciti sociosqu ad litora torquent per conubia nostra, per
     inceptos himenaeos. Phasellus libero enim, gravida sed erat sit amet,
@@ -317,7 +355,7 @@
 
   \end{block}
 
-  \begin{block}{Testing}
+  \begin{block}{Best Practice: Testing}
 
     Class aptent taciti sociosqu ad litora torquent per conubia nostra, per
     inceptos himenaeos. Phasellus libero enim, gravida sed erat sit amet,
