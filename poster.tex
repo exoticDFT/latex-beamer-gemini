@@ -46,7 +46,7 @@
 
 \title{Software Best Practices for Reproducible Open Science}
 
-\author{Alex Koufos \inst{1}} %\and Ben Bitdiddle \inst{1}}
+\author{Alex Koufos (he/him)\inst{1}} %\and Ben Bitdiddle \inst{1}}
 
 \institute[shortinst]{\inst{1} Stanford University}
 
@@ -227,10 +227,15 @@
     This history (and all its metadata) is called a "repository" or "repo".
     Figure \ref{fig:git-simple} and \ref{fig:git-github-flow} show the history
     of two different Git repositories.
+    These type of diagrams are general known as "commit graphs".
+    
     In both these figures, commits are shown as circles, with directional lines
-    showing the commit that was before it, like a linked list.
-    Each commit contains the changes from the last commit, thus tracking the
-    history of the repo over time.
+    referencing a previous commit, like a linked list.
+    Each commit contains the changes since the last commit (its parent node),
+    thus tracking the history of the repo over time.
+    This allows us to easily understand and compare changes between versions.
+    People like to refer to these commit graphs like trees, with a trunk and
+    branches off the trunk.
 
     \begin{figure}
       \centering
@@ -238,6 +243,14 @@
       \caption{Version Control: A simple Git history of the "main" branch}
       \label{fig:git-simple}
     \end{figure}
+
+    Figure \ref*{fig:git-simple} shows the simplest way to use Git.
+    In the figure we see just 5 commits starting from the left to the right.
+    Each commit represents a snapshot of the repo at that moment in time,
+    compared against the previous commit (the very first commit or snapshot
+    is considered empty.)
+    So, in this commit graph, we are simply committing each of our changes
+    against the "main" branch, i.e. the trunk.
 
     \begin{figure}
       \centering
@@ -247,7 +260,45 @@
       \label{fig:git-github-flow}
     \end{figure}
 
+    Figure \ref*{fig:git-github-flow} shows a slightly more involved way of
+    tracking changes known as the "GitHub Flow" workflow or "branching model".
+    A branching model is simple a plan for managing and tracking your changes
+    over time.
+    Here the "main" branch or trunk is generally considered a stable branch;
+    meaning the branch will attempt to only contain working, verified software,
+    while the branches off of this trunk are work in progress changes.
+    
+    Let's consider a really basic example of using this model.
+    One could imagine a code base with a script that prints some message, let's
+    say "Hello world!", to the screen.
+    The first commit, i.e. "initial commit", is just this simple script with
+    the functionality to print your message.
+    You add to the script an addition part of the message "Have a wonderful
+    day!" and commit this change to the main branch.
+    Now, you want to add new functionality (or feature) to your script to get
+    the name of the person calling your script.
+    Instead of committing directly to the main branch, which you know works, you
+    can make a branch off of main and begin adding your changes.
+    On this new branch, let's call it "feature", you add the ability to get user
+    input and update the message to "Hello World! Have a wonderful day,
+    \textit{User}!", then you commit on this new branch.
+    However, after making your commit, you realize there is an issue where the
+    user can provide anything as input, so you refine the input request to be
+    more specific and commit this change.
+    Once you are satisfied the new functionality is doing what you desire, you
+    finalize this branch by "merging" the changes back into the main branch.
+    Now, your main branches history will see these two commits as a single
+    set of changes against its previous stable commit.
+    In other words, the main branch will seem to have three commits in its
+    history all which work in a stable way.
+
   \end{block}
+
+\end{column}
+
+\separatorcolumn
+
+\begin{column}{\colwidth}
 
   \begin{block}{Best Practice: Code Reviews}
 
@@ -283,40 +334,6 @@
     \end{itemize}
 
   \end{block}
-
-\end{column}
-
-\separatorcolumn
-
-\begin{column}{\colwidth}
-
-  \begin{exampleblock}{A highlighted block containing some math}
-
-    A different kind of highlighted block.
-
-    $$
-    \int_{-\infty}^{\infty} e^{-x^2}\,dx = \sqrt{\pi}
-    $$
-
-    Interdum et malesuada fames $\{1, 4, 9, \ldots\}$ ac ante ipsum primis in
-    faucibus. Cras eleifend dolor eu nulla suscipit suscipit. Sed lobortis non
-    felis id vulputate.
-
-    \heading{A heading inside a block}
-
-    Praesent consectetur mi $x^2 + y^2$ metus, nec vestibulum justo viverra
-    nec. Proin eget nulla pretium, egestas magna aliquam, mollis neque. Vivamus
-    dictum $\mathbf{u}^\intercal\mathbf{v}$ sagittis odio, vel porta erat
-    congue sed. Maecenas ut dolor quis arcu auctor porttitor.
-
-    \heading{Another heading inside a block}
-
-    Sed augue erat, scelerisque a purus ultricies, placerat porttitor neque.
-    Donec $P(y \mid x)$ fermentum consectetur $\nabla_x P(y \mid x)$ sapien
-    sagittis egestas. Duis eget leo euismod nunc viverra imperdiet nec id
-    justo.
-
-  \end{exampleblock}
 
   \begin{block}{Best Practice: Documentation}
 
