@@ -26,6 +26,7 @@
 \usepackage{pgfplots}
 \pgfplotsset{compat=1.14}
 \usepackage{anyfontsize}
+\usepackage[numbers,super]{natbib}
 
 % ====================
 % Lengths
@@ -83,16 +84,16 @@
 
   \begin{block}{Is there a "reproducibility crisis" in the sciences?}
 
-    Over the past two decades, many researchers have been discussing the
-    potential issue within the whole of the science communities related to the
-    ability to reproduce the scientific work of others, and even themselves.
+    Over the past two decades, many researchers from several science communities
+    have been discussing a potential issue related to the ability to reproduce
+    scientific work.
     This issue has been termed the "Reproducibility Crisis" in the sciences.
-    A recent Nature article\cite{baker2016} discusses this issue.
+    The 2016 Nature article\cite{baker2016} discusses this crisis.
        
     \begin{figure}
       \centering
       \includegraphics[width=0.85\textwidth]{tess2024/Nature-Field-Confidence.png}
-      \caption{Science Field Based Confidence in Published Work (Baker, M. 2016)}
+      \caption{Science Field Based Confidence in Published Work (Baker, M. 2016)\cite{baker2016}}
       \label{fig:confidence}
     \end{figure}
 
@@ -102,12 +103,12 @@
     confident in published literature.
     However, the research suggest there are still many researchers who are not
     confident.
-    This issue leads to a lack of confidence from the general public.
+    This has led to a lack of confidence in science from the general public.
 
     \begin{figure}
       \centering
       \includegraphics[width=0.85\textwidth]{tess2024/Nature-Reproducibility-Failure-.png}
-      \caption{Failure to Reproduce Published Results (Baker, M. 2016)}
+      \caption{Failure to Reproduce Published Results (Baker, M. 2016)\cite{baker2016}}
       \label{fig:failure}
     \end{figure}
     
@@ -122,8 +123,8 @@
   \begin{alertblock}{A Failure to Reproduce}
     Several reports have suggested there is a problem with researchers being
     able to reproduce their own work.
-    The numbers suggest \textbf{over 50\% of the physics and engineering community
-    were unable to reproduce their own work!}
+    The numbers suggest \textbf{over 50\% of the physics and engineering
+    community were unable to reproduce their own work!}
 
   \end{alertblock}
 
@@ -152,7 +153,7 @@
 
 \begin{column}{\colwidth}
 
-  \begin{exampleblock}{Ways to help mitigate the reproducibility in your research}
+  \begin{exampleblock}{Ways to help mitigate reproducibility issues in your research}
 
     Software is essential and inherit in every aspect of modern research.
     The coding we do for this research is often overlooked as software
@@ -161,8 +162,8 @@
     in the recent years there has been an emergence of associations focused on 
     "research software engineering (RSEng)", specifically.
     One such organization is the
-    (\href{https://us-rse.org}{United States Research Software Engineer Association (US-RSE)})
-    (several others are mentioned in the references section.)
+    \href{https://us-rse.org}{United States Research Software Engineer Association (US-RSE)}
+    \cite{us-rse} (several others are mentioned in the references section.)
     These communities strive to promote scientific software best practices to
     support better research.
     For example, the Better Scientific Software (BSSw)\cite{bssw} provides many
@@ -174,8 +175,8 @@
     of "best practices" one can use.
     So I'm going to discuss some of the "easier" and possibly more impactful
     tools one can use.
-    I will focus on \textbf{version control}, \textbf{code reviews},
-    \textbf{documentation}, and \textbf{testing}.
+    This poster will focus on \textbf{version control}, \textbf{code reviews},
+    and \textbf{documentation}.
     
     Focusing some effort on these best practices can help with:
     \begin{itemize}
@@ -224,8 +225,8 @@
 
     \heading{Why use version control?}
     Version control can help with \textbf{reproducibility},
-    \textbf{robustness}, \textbf{scalability}, \textbf{transparency}, and
-    \textbf{collaboration}.
+    \textbf{robustness}, \textbf{scalability}, \textbf{collaboration}, and
+    \textbf{transparency}.
 
     \heading{How you can use version control}
     When working with software, \href{https://git-scm.com/}{Git} is one of the
@@ -326,8 +327,8 @@
     are added to stable code, or just used as a way to share how software works
     with team members.
     Code reviews can help with \textbf{reproducibility},
-    \textbf{robustness}, \textbf{clarity}, \textbf{transferability}, and
-    \textbf{collaboration}.
+    \textbf{robustness},  \textbf{collaboration}, \textbf{clarity}, and 
+    \textbf{transferability}.
   
     \heading{How you can use code reviews}
     Code review is one of the more involved processes, as it requires not only
@@ -367,61 +368,61 @@
 
   \begin{block}{Best Practice: Documentation}
 
-    Class aptent taciti sociosqu ad litora torquent per conubia nostra, per
-    inceptos himenaeos. Phasellus libero enim, gravida sed erat sit amet,
-    scelerisque congue diam. Fusce dapibus dui ut augue pulvinar iaculis.
+    \heading{What is documentation?}
+    I think we all know this one.
+    Documentation is simply the process of tracking the functionality and use
+    of your software via some text-based system.
 
-    \begin{table}
-      \centering
-      \begin{tabular}{l r r c}
-        \toprule
-        \textbf{First column} & \textbf{Second column} & \textbf{Third column} & \textbf{Fourth} \\
-        \midrule
-        Foo & 13.37 & 384,394 & $\alpha$ \\
-        Bar & 2.17 & 1,392 & $\beta$ \\
-        Baz & 3.14 & 83,742 & $\delta$ \\
-        Qux & 7.59 & 974 & $\gamma$ \\
-        \bottomrule
-      \end{tabular}
-      \caption{A table caption.}
-    \end{table}
 
-    Donec quis posuere ligula. Nunc feugiat elit a mi malesuada consequat. Sed
-    imperdiet augue ac nibh aliquet tristique. Aenean eu tortor vulputate,
-    eleifend lorem in, dictum urna. Proin auctor ante in augue tincidunt
-    tempor. Proin pellentesque vulputate odio, ac gravida nulla posuere
-    efficitur. Aenean at velit vel dolor blandit molestie. Mauris laoreet
-    commodo quam, non luctus nibh ullamcorper in. Class aptent taciti sociosqu
-    ad litora torquent per conubia nostra, per inceptos himenaeos.
+    \heading{Why use documentaiton?}
+    This can be one of the most effective ways to onboard people or even just
+    remind yourself of how your software works.
+    How often have you written some software, thinking you won't need it again,
+    only to pick it up again months or years later and asking yourself "What was
+    I trying to do here?"; I know I have!
+    Documentation can help with \textbf{reproducibility},
+    \textbf{collaboration}, \textbf{clarity}, \textbf{transferability}, and
+    \textbf{transparency}.
 
-    Nulla varius finibus volutpat. Mauris molestie lorem tincidunt, iaculis
-    libero at, gravida ante. Phasellus at felis eu neque suscipit suscipit.
-    Integer ullamcorper, dui nec pretium ornare, urna dolor consequat libero,
-    in feugiat elit lorem euismod lacus. Pellentesque sit amet dolor mollis,
-    auctor urna non, tempus sem.
+    \heading{How you can use documentation}
+    As mention, documentation can be a great tool to remind yourself of how your
+    software is supposed to work.
+    Documentation can come in many forms.
+    You can write documentation directly in the source code itself or at a
+    higher level outside the source itself.
+    For the former, you can use things like
+    \href{https://realpython.com/documenting-python-code/}{docstrings} for
+    Python and \href{https://www.doxygen.nl/manual/docblocks.html}{doxygen} for
+    C/C++ or Fortran source code.
+    The latter can be done by simply adding documents you can edit directly
+    with you source code, like a .doc or .md file.
+    Many of the repo management tools integrate Markdown (.md) or RestructedText
+    (.rst) files directly in their systems.
+    For example, you simple add a README.md file to the root of your repo, and
+    GitHub/GitLab will directly create a nicely formatted document to the
+    landing page of your repo.
+    This README.md file is a great option as it is generally very humanreadable
+    in plain text, making it easy to edit when your working with your code.
+    \\ \vspace{1em}
+    \textbf{Protip:} I suggest making documentation part of your pre code review
+    process. Whenever you are finalizing your code to review, you spend a few
+    minutes updating any documentation to match these changes.
+    \\ \vspace{1em}
+
 
   \end{block}
 
-  \begin{block}{Best Practice: Testing}
+  \begin{block}{Best Practice: Others to consider}
 
-    Class aptent taciti sociosqu ad litora torquent per conubia nostra, per
-    inceptos himenaeos. Phasellus libero enim, gravida sed erat sit amet,
-    scelerisque congue diam. Fusce dapibus dui ut augue pulvinar iaculis.
+    Some other best practices not covered here to consider is \textbf{testing},
 
-    Donec quis posuere ligula. Nunc feugiat elit a mi malesuada consequat. Sed
-    imperdiet augue ac nibh aliquet tristique. Aenean eu tortor vulputate,
-    eleifend lorem in, dictum urna. Proin auctor ante in augue tincidunt
-    tempor. Proin pellentesque vulputate odio, ac gravida nulla posuere
-    efficitur. Aenean at velit vel dolor blandit molestie. Mauris laoreet
-    commodo quam, non luctus nibh ullamcorper in. Class aptent taciti sociosqu
-    ad litora torquent per conubia nostra, per inceptos himenaeos.
 
   \end{block}
 
   \begin{block}{References}
 
     \nocite{*}
-    \footnotesize{\bibliographystyle{plain}\bibliography{poster}}
+    \footnotesize{\bibliographystyle{plainnat}\bibliography{poster}}
 
   \end{block}
 
