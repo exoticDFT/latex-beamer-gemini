@@ -1,0 +1,28 @@
+---
+title: The Code Review Process
+---
+flowchart LR
+    Start([Create branch])
+    End([Code review done!])
+    style Start fill:#cfc,stroke:#333,stroke-width:2px
+    style End fill:#cfc,stroke:#333,stroke-width:2px
+
+    Code1{{Make changes}}
+    Code2["Updated code<br>(Changes)"]
+    style Code1 fill:#eee,stroke:#444,stroke-width:4px
+    style Code2 fill:#fff,stroke:#111,stroke-width:2px
+
+    Review1{{Review changes}}
+    Review2{"Are the changes okay?"}
+    Review3{{"Discuss changes"}}
+    style Review1 fill:#eee,stroke:#444,stroke-width:4px
+    style Review2 fill:#fff,stroke:#111,stroke-width:2px
+    style Review3 fill:#eee,stroke:#444,stroke-width:4px
+    
+    Start==>Code1
+    Code1==>Code2
+    Code2==>Review1
+    Review1==>Review2
+    Review2==>|Yes|End
+    Review2==>|No|Review3
+    Review3==>Code1

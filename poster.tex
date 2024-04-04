@@ -181,7 +181,7 @@
     \begin{itemize}
       \item Higher \textbf{reusability} of code (less need to copy and paste
         things that already work)
-      \item Better \textbf{reproducibility} and robustness of software
+      \item Better \textbf{reproducibility} and \textbf{robustness} of software
         (verify/validate results and handle errors)
       \item Improved \textbf{scalability} (ability to add new features and
         complexity)
@@ -203,6 +203,7 @@
 
   \begin{block}{Best Practice: Version Control}
 
+    \heading{What is version control?}
     Version control can be an extremely useful tool to track changes to your
     software (and experimentation) throughout your research endeavor.
     If you are unfamiliar with version control tools, you probably have used
@@ -213,18 +214,26 @@
     past to track our research papers, where you simply save a new file with
     changes from the last iteration and name it `whatever-rev2.doc`.
     This of course can get quite tenuous quickly when you have 10+ revisions.
-    \\
+    \\ \vspace{1em}
     \textbf{Protip:} Check out \href{overleaf.com}{overleaf.com} for tracking
     document changes if working with LaTeX.
+    \\ \vspace{1em}
+    This history of these changes (and all its metadata) is called a
+    "repository" or "repo".
+    Version control is essentially a history of snapshots of your software.
 
+    \heading{Why use version control?}
+    Version control can help with \textbf{reproducibility},
+    \textbf{robustness}, \textbf{scalability}, \textbf{transparency}, and
+    \textbf{collaboration}.
+
+    \heading{How you can use version control}
     When working with software, \href{https://git-scm.com/}{Git} is one of the
     most popular tools for version control.
     It ties directly into management software, such as
     \href{https://github.com}{GitHub} and \href{https://gitlab.com}{GitLab}.
-    Git is essentially a history of snapshots in time of your software.
     This is done by saving just the changes between snapshots as "commits" in
-    a linked list, or directional acyclic graph.
-    This history (and all its metadata) is called a "repository" or "repo".
+    a linked list, often visualized as a directional acyclic graph.
     Figure \ref{fig:git-simple} and \ref{fig:git-github-flow} show the history
     of two different Git repositories.
     These type of diagrams are general known as "commit graphs".
@@ -268,29 +277,29 @@
     meaning the branch will attempt to only contain working, verified software,
     while the branches off of this trunk are work in progress changes.
     
-    Let's consider a really basic example of using this model.
-    One could imagine a code base with a script that prints some message, let's
-    say "Hello world!", to the screen.
-    The first commit, i.e. "initial commit", is just this simple script with
-    the functionality to print your message.
-    You add to the script an addition part of the message "Have a wonderful
-    day!" and commit this change to the main branch.
-    Now, you want to add new functionality (or feature) to your script to get
-    the name of the person calling your script.
-    Instead of committing directly to the main branch, which you know works, you
-    can make a branch off of main and begin adding your changes.
-    On this new branch, let's call it "feature", you add the ability to get user
-    input and update the message to "Hello World! Have a wonderful day,
-    \textit{User}!", then you commit on this new branch.
-    However, after making your commit, you realize there is an issue where the
-    user can provide anything as input, so you refine the input request to be
-    more specific and commit this change.
-    Once you are satisfied the new functionality is doing what you desire, you
-    finalize this branch by "merging" the changes back into the main branch.
-    Now, your main branches history will see these two commits as a single
-    set of changes against its previous stable commit.
-    In other words, the main branch will seem to have three commits in its
-    history all which work in a stable way.
+    % Let's consider a really basic example of using this model.
+    % One could imagine a code base with a script that prints some message, let's
+    % say "Hello world!", to the screen.
+    % The first commit, i.e. "initial commit", is just this simple script with
+    % the functionality to print your message.
+    % You add to the script an addition part of the message "Have a wonderful
+    % day!" and commit this change to the main branch.
+    % Now, you want to add new functionality (or feature) to your script to get
+    % the name of the person calling your script.
+    % Instead of committing directly to the main branch, which you know works, you
+    % can make a branch off of main and begin adding your changes.
+    % On this new branch, let's call it "feature", you add the ability to get user
+    % input and update the message to "Hello World! Have a wonderful day,
+    % \textit{User}!", then you commit on this new branch.
+    % However, after making your commit, you realize there is an issue where the
+    % user can provide anything as input, so you refine the input request to be
+    % more specific and commit this change.
+    % Once you are satisfied the new functionality is doing what you desire, you
+    % finalize this branch by "merging" the changes back into the main branch.
+    % Now, your main branches history will see these two commits as a single
+    % set of changes against its previous stable commit.
+    % In other words, the main branch will seem to have three commits in its
+    % history all which work in a stable way.
 
   \end{block}
 
@@ -302,36 +311,57 @@
 
   \begin{block}{Best Practice: Code Reviews}
 
-    Nulla eget sem quam. Ut aliquam volutpat nisi vestibulum convallis. Nunc a
-    lectus et eros facilisis hendrerit eu non urna. Interdum et malesuada fames
-    ac ante \textit{ipsum primis} in faucibus. Etiam sit amet velit eget sem
-    euismod tristique. Praesent enim erat, porta vel mattis sed, pharetra sed
-    ipsum. Morbi commodo condimentum massa, \textit{tempus venenatis} massa
-    hendrerit quis. Maecenas sed porta est. Praesent mollis interdum lectus,
-    sit amet sollicitudin risus tincidunt non.
+    \heading{What are code reviews?}
+    Code reviewing, simply put, is a process in which you, or others, look over
+    the changes to your code (or repo) over some period of time.
+    Essentially, having a second look at your changes.
+    Generally, this is done at the end of (but sometimes during) a specific set
+    of changes to the code base.
+    These sets of changes are usually associated with a request for new
+    functionality, resolving a known bug, updating existing functionality, or
+    really anything you'd like.
+  
+    \heading{Why use code reviews?}
+    Incorporating this process can be really helpful to catch bugs before they
+    are added to stable code, or just used as a way to share how software works
+    with team members.
+    Code reviews can help with \textbf{reproducibility},
+    \textbf{robustness}, \textbf{clarity}, \textbf{transferability}, and
+    \textbf{collaboration}.
+  
+    \heading{How you can use code reviews}
+    Code review is one of the more involved processes, as it requires not only
+    tool, but a standardize procedure to try to follow.
+    For each team, this will likely be different.
+    However, there are several resources you can reference to learn more.
+    Here I briefly talk about the use of a process known as "pull requests" or
+    "merge requests".
+    This process is generally directly implemented by repo management tools I
+    mentioned earlier, such as GitHub and GitLab.
+    In general, the process is three or four steps:
+    1. Update your codes (i.e. make changes), 2. Use a tool to review older
+    and newer files (i.e. review changes), 3. Make suggestions and comments
+    (discuss changes) and repeat, and 4. Merge changes into stable code.
+    Figure \ref*{fig:code-review} show the flow diagram of this process, with
+    the option of discussing changes when the initial code changes might not be
+    adequate.
 
-    Etiam sit amet tempus lorem, aliquet condimentum velit. Donec et nibh
-    consequat, sagittis ex eget, dictum orci. Etiam quis semper ante. Ut eu
-    mauris purus. Proin nec consectetur ligula. Mauris pretium molestie
-    ullamcorper. Integer nisi neque, aliquet et odio non, sagittis porta justo.
-
-    \begin{itemize}
-      \item \textbf{Sed consequat} id ante vel efficitur. Praesent congue massa
-        sed est scelerisque, elementum mollis augue iaculis.
-        \begin{itemize}
-          \item In sed est finibus, vulputate
-            nunc gravida, pulvinar lorem. In maximus nunc dolor, sed auctor eros
-            porttitor quis.
-          \item Fusce ornare dignissim nisi. Nam sit amet risus vel lacus
-            tempor tincidunt eu a arcu.
-          \item Donec rhoncus vestibulum erat, quis aliquam leo
-            gravida egestas.
-        \end{itemize}
-      \item \textbf{Sed luctus, elit sit amet} dictum maximus, diam dolor
-        faucibus purus, sed lobortis justo erat id turpis.
-      \item \textbf{Pellentesque facilisis dolor in leo} bibendum congue.
-        Maecenas congue finibus justo, vitae eleifend urna facilisis at.
-    \end{itemize}
+    \begin{figure}
+      \centering
+      \includegraphics[width=0.95\textwidth]{tess2024/code-review-flow-diagram.png}
+      \caption{Code Review: The basic code review process}
+      \label{fig:code-review}
+    \end{figure}
+    
+    GitHub has a built-in system for doing these code reviews.
+    However, you can implement the process without it, GitHub and GitLab, just
+    make it easier.
+    You will need to learn a bit of GitHub to do the process, but you'd have to
+    do the same if you implement your own.
+    If you decide to use GitHub, there are many useful resouces online to learn
+    and practice the process before implementing on important code.
+    For example, an interactive tutorial can be found at
+    \href{https://code-review.org}{code-review.org}.
 
   \end{block}
 
