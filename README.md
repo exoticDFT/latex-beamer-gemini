@@ -93,6 +93,16 @@ Or use your own theme, e.g. `awesome` (assuming your theme is in the file
 </a>
 </p>
 
+## Published Works
+
+This theme was used to create the posters:
+- Software Best Practices for Reproducible Open Science
+  <br>
+  [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.10994996.svg)](https://doi.org/10.5281/zenodo.10994996)
+- 
+
+
+
 ## Contributing
 
 Contributions such as bug reports, new themes, and new poster components are
